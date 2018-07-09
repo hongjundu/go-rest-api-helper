@@ -1,6 +1,6 @@
 # golang rest api helper
 
-A set of small data structure that makes handling rest API response easier
+A set of small data structure that help to write rest API response.
 
 * OK response format
 
