@@ -2,6 +2,25 @@
 
 A set of small data structure that makes handling rest API response easier
 
+* OK response format
+
+    {
+        "status": "ok",
+        "data":
+        {
+            "firstName": "Jon",
+            "lastName": "Snow"
+        }
+    }
+
+* Error response format
+
+    {
+        "status": "error",
+        "code": "some_error_code",
+        "msg": "some error message"
+    }
+
 ## Example
 
     package main
