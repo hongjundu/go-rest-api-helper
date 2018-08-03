@@ -27,7 +27,7 @@ A set of small data structure that help to write rest API response.
 
     import (
         "encoding/json"
-        "github.com/du-hj/go-rest-api-helper"
+        "github.com/hongjundu/go-rest-api-helper"
         "log"
         "net/http"
     )
