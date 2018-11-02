@@ -2,6 +2,7 @@ package apihelper
 
 const (
 	ErrorCodeServerError = "server_error"
+	ErrorCodeBadArgument = "bad_argument"
 )
 
 type ApiError interface {
