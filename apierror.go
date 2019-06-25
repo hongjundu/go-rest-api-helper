@@ -7,16 +7,26 @@ const (
 
 type ApiError interface {
 	error
+	StatusCode() int
 	Code() string
 }
 
 type apiError struct {
-	code string
-	msg  string
+	statusCode int
+	code       string
+	msg        string
 }
 
 func NewError(code, msg string) ApiError {
-	return &apiError{code, msg}
+	return &apiError{code: code, msg: msg}
+}
+
+func NewErrorWithStatusCode(statusCode int, code, msg string) ApiError {
+	return &apiError{statusCode: statusCode, code: code, msg: msg}
+}
+
+func (this *apiError) StatusCode() int {
+	return this.statusCode
 }
 
 func (this *apiError) Code() string {
