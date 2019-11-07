@@ -28,7 +28,7 @@ func handlerReturnsOK(r *http.Request) (response interface{}, err error) {
 }
 
 func handlerReturnsError(r *http.Request) (response interface{}, err error) {
-	err = apihelper.NewError("some_error_code", "some error message")
+	err = apihelper.NewError(http.StatusBadRequest, "bad request")
 	return
 }
 
@@ -43,6 +43,10 @@ func wrapHandler(handler func(r *http.Request) (interface{}, error)) func(w http
 		}
 
 		if err != nil {
+			if apiErr, ok := err.(ApiError); ok {
+				w.WriteHeader(apiErr.Code())
+			}
+
 			responseBody, _ = json.Marshal(apihelper.NewErrorResponse(err))
 		}
 
