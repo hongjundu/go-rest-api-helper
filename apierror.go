@@ -1,35 +1,20 @@
 package apihelper
 
-const (
-	ErrorCodeServerError = "server_error"
-	ErrorCodeBadArgument = "bad_argument"
-)
-
 type ApiError interface {
 	error
-	StatusCode() int
-	Code() string
+	Code() int
 }
 
 type apiError struct {
-	statusCode int
-	code       string
-	msg        string
+	code int
+	msg  string
 }
 
-func NewError(code, msg string) ApiError {
+func NewError(code int, msg string) ApiError {
 	return &apiError{code: code, msg: msg}
 }
 
-func NewErrorWithStatusCode(statusCode int, code, msg string) ApiError {
-	return &apiError{statusCode: statusCode, code: code, msg: msg}
-}
-
-func (this *apiError) StatusCode() int {
-	return this.statusCode
-}
-
-func (this *apiError) Code() string {
+func (this *apiError) Code() int {
 	return this.code
 }
 

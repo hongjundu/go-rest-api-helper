@@ -20,7 +20,7 @@ func NewErrorResponse(err error) interface{} {
 		if apiErr, ok := err.(ApiError); ok {
 			return &apiResponse{Status: ResponseStatusError, Code: apiErr.Code(), Msg: apiErr.Error()}
 		} else {
-			return &apiResponse{Status: ResponseStatusError, Code: ErrorCodeServerError, Msg: err.Error()}
+			return &apiResponse{Status: ResponseStatusError, Code: 500, Msg: err.Error()}
 		}
 	}
 }
@@ -32,7 +32,7 @@ func NewErrorResponse(err error) interface{} {
 
 type apiResponse struct {
 	Status string      `json:"status"`
-	Code   string      `json:"code,omitempty"`
+	Code   int         `json:"code,omitempty"`
 	Msg    string      `json:"msg,omitempty"`
 	Data   interface{} `json:"data,omitempty"`
 }
