@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/hongjundu/go-rest-api-helper"
+	apihelper "github.com/hongjundu/go-rest-api-helper"
 	"log"
 	"net/http"
 )

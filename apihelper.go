@@ -1,4 +1,4 @@
-package apihelper
+package go-rest-api-helper
 
 import (
 	"encoding/json"
