@@ -1,4 +1,4 @@
-package go-rest-api-helper
+package apihelper
 
 const (
 	ResponseStatusOK    = "ok"

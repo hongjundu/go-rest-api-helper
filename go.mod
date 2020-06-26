@@ -1,3 +1,3 @@
-module go-rest-api-helper
+module apihelper
 
 go 1.14

@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	apihelper "github.com/hongjundu/go-rest-api-helper"
+	"github.com/hongjundu/go-rest-api-helper"
 	"log"
 	"net/http"
 )
@@ -43,7 +43,7 @@ func wrapHandler(handler func(r *http.Request) (interface{}, error)) func(w http
 		}
 
 		if err != nil {
-			responseBody, _ = json.Marshal(apihelper.NewErrorResponse(err))
+			responseBody, _ = json.Marshal(go-rest-api-helper.NewErrorResponse(err))
 		}
 
 		w.Write(responseBody)
